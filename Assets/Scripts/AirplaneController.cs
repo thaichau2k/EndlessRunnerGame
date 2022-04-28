@@ -39,8 +39,12 @@ public class AirplaneController : MonoBehaviour
     if (collisionInfo.collider.tag == "Obstacle")
     {
       rb.useGravity = true;
-      FindObjectOfType<GameManager>().GameOver(15);
+      FindObjectOfType<GameManager>().GameOver(10);
     }
-    else if (collisionInfo.collider.tag == "Sea") FindObjectOfType<GameManager>().GameOver(3);
+    if (collisionInfo.collider.tag == "Sea")
+    {
+      rb.useGravity = true;
+      FindObjectOfType<GameManager>().GameOver(3);
+    }
   }
 }
